@@ -46,6 +46,7 @@ const FindCard: React.FC<FindCardProp> = ({
         .then((res) => {
           if (res.data.length === 3) {
             handleSuccess();
+            setDailyChance(0)
             console.log(res.data);
           } else {
             handleFailed();
