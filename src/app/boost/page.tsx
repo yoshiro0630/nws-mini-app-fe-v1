@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import { useEffect, useState } from "react"
 import Image from "next/image"
@@ -84,7 +85,6 @@ const Booster = () => {
             </div>
             <DailyFree data={getData!.fullBoosterEnergyCount} />
             <Boosteritem data={getData ?? undefined} setRender={setRender} render={render}/>
-            
         </div>
     )
 }

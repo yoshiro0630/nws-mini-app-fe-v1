@@ -34,7 +34,7 @@ export default function Reward() {
         <div>
           <div className="font-bold py-1  ">RoadMap</div>
           <div className="bg-gradient-to-t from-[#e30f2e] to-[#db1360] text-[#FFFFFF] text-base rounded-lg p-4 flex flex-col gap-4">
-            <div className="cursor-pointer font-bold text-center">We are about lanching our NFT marketplace</div>
+            <div className="cursor-pointer font-bold text-center">We are about launching our NFT marketplace</div>
             <div className="cursor-pointer font-bold text-center" onClick={() => router.push("/quest")}>Complete quest to learn more</div>
           </div>
         </div>
