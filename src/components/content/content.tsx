@@ -105,7 +105,7 @@ const Content = ({ data }: { data?: GetData | undefined }) => {
         <Image src="/image/cup.png" alt="Cup" width={12} height={12} />
         <div className="text-white text-sm">{data ? (data.rank >= 100 ? "99+" : data.rank ) : "99+"} {">"}</div>
       </div>
-      <div className="relative">
+      <div className="relative no-text-cursor">
         <Image
           className="rounded-full active:scale-105 duration-100 cursor-pointer w-52 h-52 bg-transparent"
           style={{
