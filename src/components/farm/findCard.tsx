@@ -48,6 +48,7 @@ const FindCard: React.FC<FindCardProp> = ({
             handleSuccess();
             console.log(res.data);
           } else {
+            handleFailed();
             console.log(res.data);
           }
         })
@@ -74,7 +75,7 @@ const FindCard: React.FC<FindCardProp> = ({
 
     // Success and failed Alert
     const [showSuccess, setShowSuccess] = useState(false);
-    // const [showFailed, setShowFailed] = useState(false);
+    const [showFailed, setShowFailed] = useState(false);
   
     const handleSuccess = () => {
       setShowSuccess(true); // Show the Success component
@@ -82,6 +83,15 @@ const FindCard: React.FC<FindCardProp> = ({
       // Set a timer to hide the component after 3 seconds
       setTimeout(() => {
         setShowSuccess(false);
+      }, 3000);
+    };
+    
+    const handleFailed = () => {
+      setShowFailed(true); // Show the Failed component
+      console.log(showFailed);
+      // Set a timer to hide the component after 3 seconds
+      setTimeout(() => {
+        setShowFailed(false);
       }, 3000);
     };
 
@@ -105,6 +115,7 @@ const FindCard: React.FC<FindCardProp> = ({
         </div>
       </div>
       {showSuccess && <OperationResult text="Success"/>}
+      {showFailed && <OperationResult text={ dailyChance === 1 ? `Wrong. You have 1 chance left` : `Wrong. You have ${dailyChance} chances left`}/>}
     </div>
   );
 };
