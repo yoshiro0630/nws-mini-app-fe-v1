@@ -27,9 +27,9 @@ const Nav: React.FC<navProp> = ({ imgSrc, navName }) => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center cursor-pointer">
+    <div className="w-full flex justify-center items-center">
       <div
-        className="flex flex-col justify-center items-center bg-[#685eab] w-[60px] h-[60px] rounded-full "
+        className="flex flex-col justify-center items-center bg-[#685eab] w-[60px] h-[60px] rounded-full cursor-pointer"
         onClick={handleRouter}
       >
         <Image className="h-8 w-8" src={imgSrc} alt="" width={32} height={32} />
