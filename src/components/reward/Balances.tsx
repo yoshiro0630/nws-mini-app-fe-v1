@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
@@ -7,12 +7,12 @@ import { userIDAtom } from "@/store/userInfo";
 import { useAtom } from "jotai";
 import VerificationModal from "../modal/withdraw";
 interface RewardData {
-  currentPoint: number
-  currentCoin: number
+  currentPoint: number;
+  currentCoin: number;
 }
 
 const Balances = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const [userID] = useAtom(userIDAtom);
 
@@ -24,7 +24,7 @@ const Balances = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get<RewardData>(
-  `https://b702-52-68-113-84.ngrok-free.app/api/get-rewards-data/${userID}`,
+          `https://b702-52-68-113-84.ngrok-free.app/api/get-rewards-data/${userID}`,
           {
             headers: {
               Authorization: "Bearer your_token_here",
@@ -45,7 +45,10 @@ const Balances = () => {
     fetchData();
   }, []);
 
-  if (loading) return <div className="text-white font-bold text-2xl text-nowrap fixed left-1/2 top-1/2 -translate-x-1/2  "></div>;
+  if (loading)
+    return (
+      <div className="text-white font-bold text-2xl text-nowrap fixed left-1/2 top-1/2 -translate-x-1/2  "></div>
+    );
   if (error)
     return (
       <div className="text-white font-bold text-2xl text-nowrap fixed left-1/2 top-1/2 -translate-x-1/2  ">
@@ -53,9 +56,9 @@ const Balances = () => {
       </div>
     );
 
-    const handleWithdraw = () => {
-      setIsOpen(true)
-    }
+  const handleWithdraw = () => {
+    setIsOpen(true);
+  };
 
   return (
     <div>
@@ -93,11 +96,14 @@ const Balances = () => {
             </div>
           </div>
         </div>
-        <button className="absolute right-2 bottom-4 px-6 py-0.5 bg-[url('/image/buttonbg.jpg')] bg-cover rounded-full text-xs" onClick={handleWithdraw}>
+        <button
+          className="absolute right-2 bottom-4 px-6 py-0.5 bg-[url('/image/buttonbg.jpg')] bg-cover rounded-full text-xs"
+          onClick={handleWithdraw}
+        >
           Withdraw
         </button>
       </div>
-      <VerificationModal isOpen={isOpen} onClose={() => setIsOpen(false)}/>
+      <VerificationModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </div>
   );
 };
