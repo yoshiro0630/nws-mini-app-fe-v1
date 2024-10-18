@@ -7,6 +7,7 @@ import { QuestData } from "@/app/quest/page";
 import axios from "axios";
 import { useAtom } from "jotai";
 import { userIDAtom } from "@/store/userInfo";
+import { verificationData } from "@/data/verification";
 
 interface VerificationModalProps {
   isOpen: boolean;
@@ -82,7 +83,7 @@ export default function VerificationModal({
           </p>
 
           <div className="flex flex-col gap-2">
-            {getData?.tasks.map(
+            {verificationData.map(
               (item) =>
                 item.id < 4 && (
                   <a key={item.id} target="_blank" href={item.link}>
@@ -92,12 +93,12 @@ export default function VerificationModal({
                       iconImgSrc=""
                       content={item.content}
                       lastImgSrc={
-                        getData.completedTasks.includes(item.id)
+                        getData?.completedTasks.includes(item.id)
                           ? "/image/arrowcheck.png"
                           : "/image/arrowright.png"
                       }
-                      point={item.revenue.point}
-                      coin={item.revenue.coin}
+                      point={item.point}
+                      coin={item.coin}
                     />
                   </a>
                 )
