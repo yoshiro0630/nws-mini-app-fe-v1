@@ -5,7 +5,7 @@ import QuestionIcon from "./qeustioncard";
 import axios from "axios";
 import { userIDAtom } from "@/store/userInfo";
 import { useAtom } from "jotai";
-import Success from "../modal/success";
+import OperationResult from "../modal/result";
 
 interface FindCardProp {
   cardImgs: string[];
@@ -104,7 +104,7 @@ const FindCard: React.FC<FindCardProp> = ({
           {style === "bg-[#437cd8]" ? "Check Cards" : "Please choose 3 cards"}
         </div>
       </div>
-      {showSuccess && <Success />}
+      {showSuccess && <OperationResult text="Success"/>}
     </div>
   );
 };

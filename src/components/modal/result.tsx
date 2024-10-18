@@ -1,25 +1,10 @@
 "use client"
-import React, { useEffect, useState } from 'react';
-import Success from './success';
 
-const OperationResult = () => {
-    const [showSuccess, setShowSuccess] = useState(false);
+const OperationResult = ({text}:{ text:string }) => {
+    return(
+        <div className="fixed top-1/3 left-1/2 -translate-x-1/2 px-12 py-2 rounded-xl bg-black bg-opacity-30 text-base text-white">{text}</div>
+    )
+}
 
-    useEffect(() => {
-        setShowSuccess(true); // Show the component
-
-        const timer = setTimeout(() => {
-            setShowSuccess(false); // Hide the component after 3 seconds
-        }, 3000);
-
-        return () => clearTimeout(timer); // Cleanup the timer on unmount
-    }, []);
-
-    return (
-        <div>
-            {showSuccess && <Success />}
-        </div>
-    );
-};
 
 export default OperationResult;
