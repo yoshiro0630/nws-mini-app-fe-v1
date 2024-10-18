@@ -45,10 +45,10 @@ const FindCard: React.FC<FindCardProp> = ({
         )
         .then((res) => {
           if (res.data.length === 3) {
-            // handleSuccess();
+            handleSuccess();
             console.log(res.data);
           } else {
-            // handleFailed();
+            handleFailed();
             console.log(res.data);
           }
         })
@@ -74,26 +74,26 @@ const FindCard: React.FC<FindCardProp> = ({
   }, [render]);
 
     // Success and failed Alert
-    // const [showSuccess, setShowSuccess] = useState(false);
-    // const [showFailed, setShowFailed] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [showFailed, setShowFailed] = useState(false);
   
-    // const handleSuccess = () => {
-    //   setShowSuccess(true); // Show the Success component
-    //   console.log(showSuccess);
-    //   // Set a timer to hide the component after 3 seconds
-    //   setTimeout(() => {
-    //     setShowSuccess(false);
-    //   }, 3000);
-    // };
+    const handleSuccess = () => {
+      setShowSuccess(true); // Show the Success component
+      console.log(showSuccess);
+      // Set a timer to hide the component after 3 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 3000);
+    };
     
-    // const handleFailed = () => {
-    //   setShowFailed(true); // Show the Failed component
-    //   console.log(showFailed);
-    //   // Set a timer to hide the component after 3 seconds
-    //   setTimeout(() => {
-    //     setShowFailed(false);
-    //   }, 3000);
-    // };
+    const handleFailed = () => {
+      setShowFailed(true); // Show the Failed component
+      console.log(showFailed);
+      // Set a timer to hide the component after 3 seconds
+      setTimeout(() => {
+        setShowFailed(false);
+      }, 3000);
+    };
 
   return (
     <div className="flex flex-col items-center text-white text-xs">
@@ -114,8 +114,8 @@ const FindCard: React.FC<FindCardProp> = ({
           {style === "bg-[#437cd8]" ? "Check Cards" : "Please choose 3 cards"}
         </div>
       </div>
-      {/* {showSuccess && <OperationResult text="Success"/>} */}
-      {/* {showFailed && <OperationResult text={ dailyChance === 1 ? `Wrong. You have 1 chance left` : `Wrong. You have ${dailyChance} chances left`}/>} */}
+      {showSuccess && <OperationResult text="Success"/>}
+      {showFailed && <OperationResult text={ dailyChance === 1 ? `Wrong. You have 1 chance left` : `Wrong. You have ${dailyChance} chances left`}/>}
     </div>
   );
 };
