@@ -61,7 +61,7 @@ export default function VerificationModal({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-      <div className="bg-indigo-900 rounded-lg border-2 border-yellow-400 w-full max-w-md">
+      <div className="bg-indigo-900 rounded-lg border-t-2 border-yellow-400 w-full max-w-md">
         <div className="relative p-6">
           <button
             onClick={onClose}
