@@ -20,6 +20,7 @@ import {
   userNameAtom,
   userIDAtom,
 } from "@/store/userInfo";
+import { useRouter } from "next/router";
 
 // import AutoClaim from "@/components/modal/autoClaim";
 
@@ -40,6 +41,8 @@ export interface GetData {
 }
 
 function Home() {
+  const router = useRouter()
+
   const [userID, setUserID] = useAtom(userIDAtom);
   /* eslint-disable @typescript-eslint/no-explicit-any */
   const [userFirstName, setUserFirstName] = useAtom(userFirstNameAtom);
@@ -55,6 +58,33 @@ function Home() {
 
   // const [isOpen, setIsOpen] = useState(false);
   // const [autoClaim, setAutoClaim] = useState(0);
+  useEffect(() => {
+    const handleRouteChangeStart = (url: string) => {
+      console.log('Loading: ', url);
+      // Start loading animation
+    };
+
+    // const handleRouteChangeComplete = (url: string) => {
+    //   console.log('Finished loading: ', url);
+    //   // Stop loading animation
+    // };
+
+    // const handleRouteChangeError = (err: Error, url: string) => {
+    //   console.error('Error loading: ', url, err);
+    //   // Handle error
+    // };
+
+    router.events.on('routeChangeStart', handleRouteChangeStart);
+    // router.events.on('routeChangeComplete', handleRouteChangeComplete);
+    // router.events.on('routeChangeError', handleRouteChangeError);
+
+    // Cleanup event listeners on component unmount
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChangeStart);
+      // router.events.off('routeChangeComplete', handleRouteChangeComplete);
+      // router.events.off('routeChangeError', handleRouteChangeError);
+    };
+  }, [router.events]);
 
   useEffect(() => {
     console.log("useTelegram");
@@ -135,6 +165,8 @@ function Home() {
       </div>
     );
   }
+
+
 
   return (
     <div className="rounded-2xl h-full w-full pb-20">
