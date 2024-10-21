@@ -86,8 +86,8 @@ const AccountVerification: React.FC<AccountData> = ({
               content={item.content}
               lastImgSrc={
                 acctasks && acctasks[item.id]
-                  ? "/image/arrowcheck.png"
-                  : "/image/arrowright.png"
+                  ? "/image/arrowright.png"
+                  : "/image/arrowcheck.png"
               }
               point={item.point}
               coin={item.coin}
