@@ -3,20 +3,20 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useAtom } from "jotai";
 
-import { saveEnergy, saveTaps } from "@/hook/save";
-import { curEnergyAtom, tapsAtom } from "@/store/save";
+import { saveTaps } from "@/hook/save";
+import { tapsAtom } from "@/store/save";
 import { userIDAtom } from "@/store/userInfo";
 
 const InvitePool = ({ title }: { title?: string }) => {
   const [taps, setTaps] = useAtom(tapsAtom);
-  const [curEnergy] = useAtom(curEnergyAtom);
+  // const [curEnergy] = useAtom(curEnergyAtom);
   const [userID] = useAtom(userIDAtom);
 
   const router = useRouter();
 
   const handleRouter = () => {
     saveTaps(taps, userID);
-    saveEnergy(curEnergy, userID);
+    // saveEnergy(curEnergy, userID);
     setTaps(0);
     router.push("friends");
   };

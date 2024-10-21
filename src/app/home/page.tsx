@@ -21,6 +21,8 @@ import {
   userIDAtom,
 } from "@/store/userInfo";
 import { usePathname } from "next/navigation";
+import { curEnergyAtom } from "@/store/save";
+import { saveEnergy } from "@/hook/save";
 
 
 // import AutoClaim from "@/components/modal/autoClaim";
@@ -45,6 +47,7 @@ function Home() {
   const pathname = usePathname();
 
   const [userID, setUserID] = useAtom(userIDAtom);
+  const [curEnergy] = useAtom(curEnergyAtom);
   /* eslint-disable @typescript-eslint/no-explicit-any */
   const [userFirstName, setUserFirstName] = useAtom(userFirstNameAtom);
   const [userLastName, setUserLastName] = useAtom(userLastNameAtom);
@@ -62,7 +65,7 @@ function Home() {
   useEffect(() => {
     console.log('Navigated to: ', pathname);
     // You can start a loading animation or perform other actions here
-
+    saveEnergy(curEnergy, userID);
     // Optionally, you can return a cleanup function if needed
     return () => {
       console.log('Cleanup on unmount or path change');
