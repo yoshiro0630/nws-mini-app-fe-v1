@@ -1,3 +1,6 @@
+import { userIDAtom } from "@/store/userInfo";
+import axios from "axios";
+import { useAtom } from "jotai";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -8,6 +11,9 @@ interface WithdrawModalProps {
 }
 
 export default function WithdrawModal({ coin, isOpen = true, onClose }: WithdrawModalProps) {
+  const [userID] = useAtom(userIDAtom);
+
+
   const [amount, setAmount] = useState<number | null>(null);
   const [address, setAddress] = useState("");
   const [isVisible, setIsVisible] = useState(false);
@@ -19,6 +25,14 @@ export default function WithdrawModal({ coin, isOpen = true, onClose }: Withdraw
   if (!isOpen) return null;
 
   const handleWithdraw = () => {
+    axios
+    .put(
+      `https://8152-95-216-228-74.ngrok-free.app/api/withdraw/${userID}`)
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => console.log(err));
+
     console.log(`Withdrawing ${amount} $NWS to ${address}`);
     onClose();
   };
