@@ -63,14 +63,15 @@ function Home() {
   // const [isOpen, setIsOpen] = useState(false);
   // const [autoClaim, setAutoClaim] = useState(0);
   useEffect(() => {
-    console.log('Navigated to: ', pathname);
-    // You can start a loading animation or perform other actions here
+    // Call saveEnergy when the component mounts and when the pathname changes
     saveEnergy(curEnergy, userID);
-    // Optionally, you can return a cleanup function if needed
+    console.log('Navigated to: ', pathname);
+
+    // Cleanup function if needed
     return () => {
       console.log('Cleanup on unmount or path change');
     };
-  }, [pathname]); // Effect runs whenever the pathname changes
+  }, [pathname, curEnergy, userID, saveEnergy]);
 
   useEffect(() => {
     console.log("useTelegram");
