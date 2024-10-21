@@ -29,6 +29,7 @@ const AccountVerification: React.FC<AccountData> = ({
     if (acctasks) {
       isCompeletd = acctasks;
       isCompeletd[id-1] = true;
+      console.log("isCompeletd", isCompeletd)
       axios
         .put(
           `https://8152-95-216-228-74.ngrok-free.app/api/update/do-acctask/${userID}`,
@@ -39,7 +40,7 @@ const AccountVerification: React.FC<AccountData> = ({
           }
         )
         .then((res) => {
-          console.log(res);
+          console.log(res.data);
           response();
         })
         .catch((err) => console.log(err));
