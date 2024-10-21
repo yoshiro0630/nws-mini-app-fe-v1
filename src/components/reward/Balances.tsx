@@ -10,7 +10,7 @@ import WithdrawModal from "../modal/withdrawfield";
 interface RewardData {
   currentPoint: number;
   currentCoin: number;
-  isVerification: boolean
+  isVerified: boolean
 }
 
 const Balances = () => {
@@ -60,7 +60,7 @@ const Balances = () => {
     );
 
   const handleWithdraw = () => {
-    if(getData?.isVerification) {
+    if(getData?.isVerified) {
       setIsOpenWithdraw(true)
     } else {
       setIsOpenVerification(true);
