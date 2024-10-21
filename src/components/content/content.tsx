@@ -50,7 +50,8 @@ const Content = ({ data }: { data?: GetData | undefined }) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurEnergy(curEnergy)
+      setCurEnergy(energy)
+      console.log("energy",curEnergy,energy)
       setEnergy((prevEnergy) => {
         const newEnergy = prevEnergy + speed;
         return newEnergy > maxEnergy ? maxEnergy : newEnergy;
