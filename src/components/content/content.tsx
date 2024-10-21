@@ -55,11 +55,11 @@ const Content = ({ data }: { data?: GetData | undefined }) => {
         const newEnergy = prevEnergy + speed;
         return newEnergy > maxEnergy ? maxEnergy : newEnergy;
       });
-      
-      setEnergy((prevEnergy) => {
-        const newEnergy = prevEnergy + speed;
-        return newEnergy > maxEnergy ? maxEnergy : newEnergy;
-      });
+
+      // setEnergy((prevEnergy) => {
+      //   const newEnergy = prevEnergy + speed;
+      //   return newEnergy > maxEnergy ? maxEnergy : newEnergy;
+      // });
     }, 1000); // Update every second
 
     return () => clearInterval(intervalId); // Clear interval on component unmount
