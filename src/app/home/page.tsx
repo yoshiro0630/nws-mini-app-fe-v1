@@ -20,7 +20,8 @@ import {
   userNameAtom,
   userIDAtom,
 } from "@/store/userInfo";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
+
 
 // import AutoClaim from "@/components/modal/autoClaim";
 
@@ -41,7 +42,7 @@ export interface GetData {
 }
 
 function Home() {
-  const router = useRouter()
+  const pathname = usePathname();
 
   const [userID, setUserID] = useAtom(userIDAtom);
   /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -59,32 +60,14 @@ function Home() {
   // const [isOpen, setIsOpen] = useState(false);
   // const [autoClaim, setAutoClaim] = useState(0);
   useEffect(() => {
-    const handleRouteChangeStart = (url: string) => {
-      console.log('Loading: ', url);
-      // Start loading animation
-    };
+    console.log('Navigated to: ', pathname);
+    // You can start a loading animation or perform other actions here
 
-    // const handleRouteChangeComplete = (url: string) => {
-    //   console.log('Finished loading: ', url);
-    //   // Stop loading animation
-    // };
-
-    // const handleRouteChangeError = (err: Error, url: string) => {
-    //   console.error('Error loading: ', url, err);
-    //   // Handle error
-    // };
-
-    router.events.on('routeChangeStart', handleRouteChangeStart);
-    // router.events.on('routeChangeComplete', handleRouteChangeComplete);
-    // router.events.on('routeChangeError', handleRouteChangeError);
-
-    // Cleanup event listeners on component unmount
+    // Optionally, you can return a cleanup function if needed
     return () => {
-      router.events.off('routeChangeStart', handleRouteChangeStart);
-      // router.events.off('routeChangeComplete', handleRouteChangeComplete);
-      // router.events.off('routeChangeError', handleRouteChangeError);
+      console.log('Cleanup on unmount or path change');
     };
-  }, [router.events]);
+  }, [pathname]); // Effect runs whenever the pathname changes
 
   useEffect(() => {
     console.log("useTelegram");
