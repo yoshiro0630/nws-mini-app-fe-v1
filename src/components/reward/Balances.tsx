@@ -6,13 +6,16 @@ import axios from "axios";
 import { userIDAtom } from "@/store/userInfo";
 import { useAtom } from "jotai";
 import VerificationModal from "../modal/withdraw";
+import WithdrawModal from "../modal/withdrawfield";
 interface RewardData {
   currentPoint: number;
   currentCoin: number;
+  isVerification: boolean
 }
 
 const Balances = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenVerification, setIsOpenVerification] = useState(false);
+  const [isOpenWithdraw, setIsOpenWithdraw] = useState(false);
 
   const [userID] = useAtom(userIDAtom);
 
@@ -57,7 +60,11 @@ const Balances = () => {
     );
 
   const handleWithdraw = () => {
-    setIsOpen(true);
+    if(getData?.isVerification) {
+      setIsOpenWithdraw(true)
+    } else {
+      setIsOpenVerification(true);
+    }
   };
 
   return (
@@ -103,7 +110,8 @@ const Balances = () => {
           Withdraw
         </button>
       </div>
-      <VerificationModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <VerificationModal isOpen={isOpenVerification} onClose={() => setIsOpenVerification(false)} />
+      <WithdrawModal coin={getData?.currentCoin} isOpen={isOpenWithdraw} onClose={() => setIsOpenWithdraw(false)} />
     </div>
   );
 };

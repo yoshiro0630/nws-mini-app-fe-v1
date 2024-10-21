@@ -1,12 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import Image from "next/image";
-import Primarybutton from "../button/primaryButton";
 import { useEffect, useState } from "react";
 import { QuestData } from "@/app/quest/page";
 import axios from "axios";
 import { useAtom } from "jotai";
 import { userIDAtom } from "@/store/userInfo";
+
+import Primarybutton from "../button/primaryButton";
 import { verificationData } from "@/data/verification";
 
 interface VerificationModalProps {
@@ -61,7 +62,7 @@ export default function VerificationModal({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-      <div className="bg-indigo-900 rounded-lg border-t-2 border-yellow-400 w-full max-w-md">
+      <div className="bg-indigo-900 rounded-lg border-y-4 border-yellow-400 w-full max-w-md">
         <div className="relative p-6">
           <button
             onClick={onClose}
@@ -78,7 +79,7 @@ export default function VerificationModal({
           </div>
 
           <p className="text-white text-center mb-6">
-            The withdraw of $GALA requires account verification to be completed
+            The withdraw of $NWS requires account verification to be completed
             first. Please complete it and try again.
           </p>
 
