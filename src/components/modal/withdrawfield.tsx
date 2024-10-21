@@ -77,7 +77,7 @@ export default function WithdrawModal({ coin, isOpen = true, onClose }: Withdraw
               How to find my NodewavesChain address?
             </p>
           </div>
-          <p className="text-red-500 text-sm text-center">
+          <p className="text-black text-sm text-center">
             Incorrect addresses will result in losses.
             <br />
             You will receive tokens in 72 hrs

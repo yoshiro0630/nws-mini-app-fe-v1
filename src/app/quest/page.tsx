@@ -31,9 +31,10 @@ export interface TaskData {
 export interface QuestData {
   taskReward: number;
   dailyReward: number;
+  quest: number;
+  acctasks: boolean[]
   completedTasks: number[];
   tasks: TaskData[];
-  quest: number;
 }
 
 const Quest = () => {
@@ -105,7 +106,8 @@ const Quest = () => {
       <Dailytask dailyReward={getData?.dailyReward ?? 0}/>
       <AccountVerification 
         tasks={getData?.tasks ?? []} 
-        completedTasks={getData?.completedTasks ?? []}
+        // completedTasks={getData?.acctasks ?? []}
+        acctasks={getData?.acctasks ?? []}
         render={render}
         setRender={serRender}
       />
