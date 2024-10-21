@@ -47,6 +47,7 @@ const Booster = () => {
             }
           );
           setgetData(response.data)
+          console.log("boost",response.data)
         } catch (err) {
           setError(err instanceof Error ? err.message : "An error occurred"); // Improved error handling
         } finally {

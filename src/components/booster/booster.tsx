@@ -49,6 +49,7 @@ const Boosteritem: React.FC<BoosterData> = ({ data, render, setRender }) => {
         }
       )
       .then((res) => {
+        console.log(res.data)   
         if (res.data) {
           handleSuccess();
           boosterData[id - 1].level = boosterData[id - 1].level + 1;
