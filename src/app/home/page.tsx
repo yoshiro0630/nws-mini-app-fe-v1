@@ -20,11 +20,6 @@ import {
   userNameAtom,
   userIDAtom,
 } from "@/store/userInfo";
-import { usePathname } from "next/navigation";
-import { curEnergyAtom } from "@/store/save";
-import { saveEnergy } from "@/hook/save";
-
-
 // import AutoClaim from "@/components/modal/autoClaim";
 
 export interface GetData {
@@ -44,10 +39,7 @@ export interface GetData {
 }
 
 function Home() {
-  const pathname = usePathname();
-
   const [userID, setUserID] = useAtom(userIDAtom);
-  const [curEnergy] = useAtom(curEnergyAtom);
   /* eslint-disable @typescript-eslint/no-explicit-any */
   const [userFirstName, setUserFirstName] = useAtom(userFirstNameAtom);
   const [userLastName, setUserLastName] = useAtom(userLastNameAtom);
@@ -62,16 +54,6 @@ function Home() {
 
   // const [isOpen, setIsOpen] = useState(false);
   // const [autoClaim, setAutoClaim] = useState(0);
-  useEffect(() => {
-    // Call saveEnergy when the component mounts and when the pathname changes
-    saveEnergy(curEnergy, userID);
-    console.log('Navigated to: ', pathname);
-
-    // Cleanup function if needed
-    return () => {
-      console.log('Cleanup on unmount or path change');
-    };
-  }, [pathname, curEnergy, userID, saveEnergy]);
 
   useEffect(() => {
     console.log("useTelegram");

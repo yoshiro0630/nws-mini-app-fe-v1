@@ -19,7 +19,7 @@ const Content = ({ data }: { data?: GetData | undefined }) => {
   if (initenergy > Number(data?.maxEnergy))
     initenergy = Number(data?.maxEnergy);
   console.log(
-    "CALA energy",
+    "CALC energy",
     initenergy,
     "=",
     data?.curEnergy,
@@ -50,6 +50,7 @@ const Content = ({ data }: { data?: GetData | undefined }) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
+      setCurEnergy(curEnergy)
       setEnergy((prevEnergy) => {
         const newEnergy = prevEnergy + speed;
         return newEnergy > maxEnergy ? maxEnergy : newEnergy;
