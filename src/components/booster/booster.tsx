@@ -43,9 +43,9 @@ const Boosteritem: React.FC<BoosterData> = ({ data, render, setRender }) => {
       .put(
         `https://8152-95-216-228-74.ngrok-free.app/api/update/energy-levelup/${userID}`,
         {
-          newMaxLvl: updateData[0],
-          newSecondIncLvl: updateData[1],
-          newTap2PointLvl: updateData[2],
+          max: updateData[0],
+          regen: updateData[1],
+          tap: updateData[2],
         }
       )
       .then((res) => {
