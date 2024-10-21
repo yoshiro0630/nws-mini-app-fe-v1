@@ -42,11 +42,11 @@ const Content = ({ data }: { data?: GetData | undefined }) => {
     setCurPoint(data?.currentPoint || 0);
     setCurEnergy(initenergy);
   }, []);
-  // console.log("ddd", curEnergy, curPoint)
+  console.log("ddd", curEnergy, curPoint, taps)
 
   useEffect(() => {
     setCurEnergy(energy)
-    console.log("ddd", curEnergy, curPoint, taps);
+    // console.log("ddd", curEnergy, curPoint, taps);
   }, [energy]);
 
   useEffect(() => {
