@@ -45,21 +45,17 @@ const Content = ({ data }: { data?: GetData | undefined }) => {
   // console.log("ddd", curEnergy, curPoint)
 
   useEffect(() => {
+    setCurEnergy(energy)
     console.log("ddd", curEnergy, curPoint, taps);
-  }, [point]);
+  }, [energy]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       console.log("energy",curEnergy,energy)
-      setCurEnergy((prevEnergy) => {
+      setEnergy((prevEnergy) => {
         const newEnergy = prevEnergy + speed;
         return newEnergy > maxEnergy ? maxEnergy : newEnergy;
       });
-
-      // setEnergy((prevEnergy) => {
-      //   const newEnergy = prevEnergy + speed;
-      //   return newEnergy > maxEnergy ? maxEnergy : newEnergy;
-      // });
     }, 1000); // Update every second
 
     return () => clearInterval(intervalId); // Clear interval on component unmount
