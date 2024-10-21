@@ -159,7 +159,7 @@ CardProps) {
   const handleLevelUp = () => {
     axios
       .put<CardData>(
-        `https://b702-52-68-113-84.ngrok-free.app/api/update/card/${userID}`,
+        `https://8152-95-216-228-74.ngrok-free.app/api/update/card/${userID}`,
         { cardId: id }
       )
       .then((res) => {

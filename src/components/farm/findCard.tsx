@@ -40,7 +40,7 @@ const FindCard: React.FC<FindCardProp> = ({
     if (style === "bg-[#437cd8]" && dailyChance > 0) {
       axios
         .put(
-          `https://b702-52-68-113-84.ngrok-free.app/api/update/card-reward/${userID}`,
+          `https://8152-95-216-228-74.ngrok-free.app/api/update/card-reward/${userID}`,
           { cardpair: chooseCard }
         )
         .then((res) => {

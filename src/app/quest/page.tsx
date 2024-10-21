@@ -49,7 +49,7 @@ const Quest = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get<QuestData>(
-          `https://b702-52-68-113-84.ngrok-free.app/api/get-task-data/${userID}`,
+          `https://8152-95-216-228-74.ngrok-free.app/api/get-task-data/${userID}`,
           {
             headers: {
               Authorization: "Bearer your_token_here",

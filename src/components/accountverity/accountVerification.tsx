@@ -22,7 +22,7 @@ const AccountVerification:React.FC<AccountData> = ({completedTasks, render, setR
   const handletask = (id: number) => {
     axios
       .put(
-        `https://b702-52-68-113-84.ngrok-free.app/api/update/task/${userID}`,
+        `https://8152-95-216-228-74.ngrok-free.app/api/update/task/${userID}`,
         { taskId: id }
       )
       .then((res) => {

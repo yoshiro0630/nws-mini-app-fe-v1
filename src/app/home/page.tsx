@@ -32,7 +32,7 @@ export interface GetData {
   recoverSpeed: number;
   multiValue: number;
   updatedAt: string;
-  dayCount: number;
+  // dayCount: number;
   isDayCountEnable: boolean;
   serverTime: Date;
   dT: number;
@@ -79,7 +79,7 @@ function Home() {
           try {
             // const tgID = "6739845345345"; // Ensure this is set correctly
             const response = await axios.get<GetData>(
-              `https://b702-52-68-113-84.ngrok-free.app/api/get-home-data/${tgData.initDataUnsafe.user.id.toString()}`,
+              `https://8152-95-216-228-74.ngrok-free.app/api/get-home-data/${tgData.initDataUnsafe.user.id.toString()}`,
               {
                 headers: {
                   Authorization: "Bearer your_token_here",
@@ -99,7 +99,7 @@ function Home() {
 
         axios
           .post(
-            `https://b702-52-68-113-84.ngrok-free.app/api/get-user/${tgData.initDataUnsafe.user.id.toString()}`,
+            `https://8152-95-216-228-74.ngrok-free.app/api/get-user/${tgData.initDataUnsafe.user.id.toString()}`,
             {
               userName: tgData.initDataUnsafe.user.username,
               firstName: tgData.initDataUnsafe.user.first_name,

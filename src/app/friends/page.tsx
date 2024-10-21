@@ -32,7 +32,7 @@ const Frens = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get<InviteData>(
-          `https://b702-52-68-113-84.ngrok-free.app/api/get-friend-data/${userID}`,
+          `https://8152-95-216-228-74.ngrok-free.app/api/get-friend-data/${userID}`,
           {
             headers: {
               Authorization: "Bearer your_token_here",

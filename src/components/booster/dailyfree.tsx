@@ -17,7 +17,7 @@ const DailyFree = ({ data }: { data: number }) => {
     setIsOpen(false);
     axios
       .put(
-        `https://b702-52-68-113-84.ngrok-free.app/api/update/daily-data/boostcount/${userID}`
+        `https://8152-95-216-228-74.ngrok-free.app/api/update/daily-data/boostcount/${userID}`
       )
       .then((res) => {
         if (res.data) {

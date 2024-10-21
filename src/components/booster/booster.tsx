@@ -41,7 +41,7 @@ const Boosteritem: React.FC<BoosterData> = ({ data, render, setRender }) => {
     if (id === 3) updateData[2] = 1;
     axios
       .put(
-        `https://b702-52-68-113-84.ngrok-free.app/api/update/energy-levelup/${userID}`,
+        `https://8152-95-216-228-74.ngrok-free.app/api/update/energy-levelup/${userID}`,
         {
           newMaxLvl: updateData[0],
           newSecondIncLvl: updateData[1],

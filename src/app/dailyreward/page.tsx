@@ -34,7 +34,7 @@ export default function DailyReward() {
   const fetchData = async () => {
     try {
       const response = await axios.get<DailyRewardData>(
-        `https://b702-52-68-113-84.ngrok-free.app/api/get-dailyreward-data/${userID}`,
+        `https://8152-95-216-228-74.ngrok-free.app/api/get-dailyreward-data/${userID}`,
         {
           headers: {
             Authorization: "Bearer your_token_here",
@@ -91,7 +91,7 @@ export default function DailyReward() {
   const handleClaim = () => {
     axios
       .put(
-        `https://b702-52-68-113-84.ngrok-free.app/api/update/daily-data/daycount/${userID}`
+        `https://8152-95-216-228-74.ngrok-free.app/api/update/daily-data/daycount/${userID}`
       )
       .then((res) => {
         if (res.data) {

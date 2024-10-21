@@ -47,7 +47,7 @@ const RankList: React.FC<RankListProp> = ({ sort }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get<RankData>(
-          `https://b702-52-68-113-84.ngrok-free.app/api/get-rank-data/${userID}`,
+          `https://8152-95-216-228-74.ngrok-free.app/api/get-rank-data/${userID}`,
           {
             headers: {
               Authorization: "Bearer your_token_here",

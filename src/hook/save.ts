@@ -2,10 +2,10 @@
 import axios from "axios";
 
 export const saveTaps = async (clickNum: number, tgID: string) => {
-  await axios.post(`https://b702-52-68-113-84.ngrok-free.app/api/get-user/${tgID}`)
+  await axios.post(`https://8152-95-216-228-74.ngrok-free.app/api/get-user/${tgID}`)
   await axios
     .put(
-      `https://b702-52-68-113-84.ngrok-free.app/api/update/tap2point/${tgID}`,
+      `https://8152-95-216-228-74.ngrok-free.app/api/update/tap2point/${tgID}`,
       {
             taps: clickNum
       }
@@ -19,7 +19,7 @@ export const saveTaps = async (clickNum: number, tgID: string) => {
 export const saveEnergy = async (curEnergy: number, tgID: string) => {
   await axios
     .put(
-      `https://b702-52-68-113-84.ngrok-free.app/api/update/current-values/${tgID}`,
+      `https://8152-95-216-228-74.ngrok-free.app/api/update/current-values/${tgID}`,
       {
         curEnergy: curEnergy
       }
