@@ -60,7 +60,7 @@ const Quest = () => {
           }
         );
         setgetData(response.data);
-        // console.log("sdf", response.data);
+        console.log("sdf", response.data);
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred"); // Improved error handling
       } finally {

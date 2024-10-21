@@ -86,7 +86,7 @@ export default function VerificationModal({
           <div className="flex flex-col gap-2">
             {verificationData.map(
               (item) =>
-                item.id < 4 && (
+                (
                   <a key={item.id} target="_blank" href={item.link}>
                     <Primarybutton
                       mainImgSrc="/image/nws.png"
@@ -94,9 +94,9 @@ export default function VerificationModal({
                       iconImgSrc=""
                       content={item.content}
                       lastImgSrc={
-                        getData?.completedTasks.includes(item.id)
-                          ? "/image/arrowcheck.png"
-                          : "/image/arrowright.png"
+                        getData?.acctasks[item.id]
+                        ? "/image/arrowcheck.png"
+                        : "/image/arrowright.png"
                       }
                       point={item.point}
                       coin={item.coin}
